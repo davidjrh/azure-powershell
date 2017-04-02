@@ -267,9 +267,8 @@ namespace Microsoft.Azure.Commands.Batch.Models
         public PSJobStatistics GetAllJobsLifetimeStatistics(BatchAccountContext context, IEnumerable<BatchClientBehavior> additionalBehaviors = null)
         {
             WriteVerbose(Resources.GetAllJobsLifetimeStatistics);
-
             JobOperations jobOperations = context.BatchOMClient.JobOperations;
-            JobStatistics jobStatistics = jobOperations.GetAllJobsLifetimeStatistics(additionalBehaviors);
+            JobStatistics jobStatistics = jobOperations.GetAllLifetimeStatistics(additionalBehaviors);
             PSJobStatistics psJobStatistics = new PSJobStatistics(jobStatistics);
 
             return psJobStatistics;

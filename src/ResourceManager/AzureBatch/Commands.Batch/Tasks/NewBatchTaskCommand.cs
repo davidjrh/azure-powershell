@@ -69,7 +69,7 @@ namespace Microsoft.Azure.Commands.Batch
 
         [Parameter(ParameterSetName = JobIdAndSingleAddParameterSet)]
         [Parameter(ParameterSetName = JobObjectAndSingleAddParameterSet)]
-        public SwitchParameter RunElevated { get; set; }
+        public PSUserIdentity UserIdentity { get; set; }
 
         [Parameter(ParameterSetName = JobIdAndSingleAddParameterSet)]
         [Parameter(ParameterSetName = JobObjectAndSingleAddParameterSet)]
@@ -124,7 +124,7 @@ namespace Microsoft.Azure.Commands.Batch
                     CommandLine = this.CommandLine,
                     ResourceFiles = this.ResourceFiles,
                     EnvironmentSettings = this.EnvironmentSettings,
-                    RunElevated = this.RunElevated.IsPresent,
+                    UserIdentity = this.UserIdentity,
                     AffinityInformation = this.AffinityInformation,
                     Constraints = this.Constraints,
                     MultiInstanceSettings = this.MultiInstanceSettings,

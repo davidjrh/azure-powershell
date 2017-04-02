@@ -228,14 +228,14 @@ namespace Microsoft.Azure.Commands.Batch.Models
             if (stream != null)
             {
                 // Don't dispose supplied Stream
-                file.CopyToStream(stream, additionalBehaviors);
+                file.CopyToStream(stream, null, additionalBehaviors);
             }
             else
             {
-                WriteVerbose(string.Format(Resources.DownloadingNodeFile, file.Name, destinationPath));
+                WriteVerbose(string.Format(Resources.DownloadingNodeFile, file.Path, destinationPath));
                 using (FileStream fs = new FileStream(destinationPath, FileMode.Create))
                 {
-                    file.CopyToStream(fs, additionalBehaviors);
+                    file.CopyToStream(fs, null, additionalBehaviors);
                 }
             }
         }

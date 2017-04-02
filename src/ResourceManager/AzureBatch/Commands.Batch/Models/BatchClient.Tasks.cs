@@ -91,8 +91,19 @@ namespace Microsoft.Azure.Commands.Batch.Models
 
             CloudTask task = new CloudTask(parameters.TaskId, parameters.CommandLine);
             task.DisplayName = parameters.DisplayName;
-            task.RunElevated = parameters.RunElevated;
-
+            if (parameters.UserIdentity != null)
+            {
+                if (parameters.UserIdentity.AutoUser != null)
+                {
+                    task.UserIdentity =
+                        new UserIdentity(new AutoUserSpecification(parameters.UserIdentity.AutoUser.Scope,
+                            parameters.UserIdentity.AutoUser.ElevationLevel));
+                }
+                else
+                {
+                    task.UserIdentity = new UserIdentity(parameters.UserIdentity.UserName);
+                }
+            }
             if (parameters.EnvironmentSettings != null)
             {
                 task.EnvironmentSettings = new List<EnvironmentSetting>();

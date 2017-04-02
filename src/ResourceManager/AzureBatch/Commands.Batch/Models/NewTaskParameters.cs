@@ -58,9 +58,9 @@ namespace Microsoft.Azure.Commands.Batch.Models
         public IDictionary EnvironmentSettings { get; set; }
 
         /// <summary>
-        /// Whether to run the task in elevated mode.
+        /// User identity for the task.
         /// </summary>
-        public bool RunElevated { get; set; }
+        public PSUserIdentity UserIdentity { get; set; }
 
         /// <summary>
         /// The affinity information for the task.

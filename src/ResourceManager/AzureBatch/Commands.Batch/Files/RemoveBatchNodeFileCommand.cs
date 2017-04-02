@@ -63,7 +63,7 @@ namespace Microsoft.Azure.Commands.Batch
 
         public override void ExecuteCmdlet()
         {
-            string fileName = this.InputObject == null ? this.Name : this.InputObject.Name;
+            string fileName = this.InputObject == null ? this.Name : this.InputObject.Path;
             NodeFileOperationParameters parameters = new NodeFileOperationParameters(this.BatchContext, this.JobId, this.TaskId, this.PoolId,
                 this.ComputeNodeId, this.Name, this.InputObject, this.AdditionalBehaviors);
 

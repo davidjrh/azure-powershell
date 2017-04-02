@@ -80,7 +80,7 @@ namespace Microsoft.Azure.Commands.Batch.Models
 
             WriteVerbose(string.Format(Resources.GetAllPoolsLifetimeStatistics));
 
-            PoolStatistics poolStatistics = poolOperations.GetAllPoolsLifetimeStatistics(additionBehaviors);
+            PoolStatistics poolStatistics = poolOperations.GetAllLifetimeStatistics(additionBehaviors);
             PSPoolStatistics psPoolStatistics = new PSPoolStatistics(poolStatistics);
             return psPoolStatistics;
         }
