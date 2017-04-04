@@ -158,7 +158,7 @@ namespace Microsoft.Azure.Commands.Batch.Utils
                 jobManager.omObject.ResourceFiles = CreateSyncedList(jobManager.ResourceFiles,
                     (r) =>
                     {
-                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath);
+                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath, r.FileMode);
                         return resourceFile;
                     });
                 jobManager.omObject.ApplicationPackageReferences = CreateSyncedList(jobManager.ApplicationPackageReferences,
@@ -191,7 +191,7 @@ namespace Microsoft.Azure.Commands.Batch.Utils
                 jobPrepTask.omObject.ResourceFiles = CreateSyncedList(jobPrepTask.ResourceFiles,
                     (r) =>
                     {
-                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath);
+                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath, r.FileMode);
                         return resourceFile;
                     });
             }
@@ -214,7 +214,7 @@ namespace Microsoft.Azure.Commands.Batch.Utils
                 jobReleaseTask.omObject.ResourceFiles = CreateSyncedList(jobReleaseTask.ResourceFiles,
                     (r) =>
                     {
-                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath);
+                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath, r.FileMode);
                         return resourceFile;
                     });
             }
@@ -302,7 +302,7 @@ namespace Microsoft.Azure.Commands.Batch.Utils
                 task.omObject.ResourceFiles = CreateSyncedList(task.ResourceFiles,
                     (r) =>
                     {
-                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath);
+                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath, r.FileMode);
                         return resourceFile;
                     });
 
@@ -327,7 +327,7 @@ namespace Microsoft.Azure.Commands.Batch.Utils
                 startTask.omObject.ResourceFiles = CreateSyncedList(startTask.ResourceFiles,
                     (r) =>
                     {
-                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath);
+                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath, r.FileMode);
                         return resourceFile;
                     });
             }
@@ -343,7 +343,7 @@ namespace Microsoft.Azure.Commands.Batch.Utils
                 multiInstanceSettings.omObject.CommonResourceFiles = CreateSyncedList(multiInstanceSettings.CommonResourceFiles,
                     (r) =>
                     {
-                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath);
+                        ResourceFile resourceFile = new ResourceFile(r.BlobSource, r.FilePath, r.FileMode);
                         return resourceFile;
                     });
             }
